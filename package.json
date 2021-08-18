@@ -1,0 +1,12 @@
+{
+  "name": "validator-lib",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "joi": "^17.4.2"
+  }
+}
