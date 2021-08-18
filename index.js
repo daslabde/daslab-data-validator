@@ -1,4 +1,12 @@
 import validate from './validate'
+
+import {
+  boolean,
+  date,
+  number,
+  string,
+} from './veeValidate/rules'
+
 import {
   dateFormat,
   email,
@@ -14,6 +22,11 @@ import {
 
 export {
   validate,
+
+  boolean,
+  date,
+  number,
+  string,
 
   dateFormat,
   email,

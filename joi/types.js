@@ -1,3 +1,5 @@
+import Joi from 'joi'
+
 const boolean = () => {
   return Joi.boolean()
 }
