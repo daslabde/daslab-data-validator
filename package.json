@@ -1,8 +1,11 @@
 {
-  "name": "validator-lib",
-  "version": "1.0.0",
-  "type": "module",
-  "private": true,
+  "name": "@daslabde/daslab-data-validator",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@daslabde"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
