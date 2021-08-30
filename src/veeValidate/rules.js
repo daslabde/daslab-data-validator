@@ -1,5 +1,5 @@
-import * as joiTypes from '../../joi/types'
-import * as joiRules from '../../joi/rules'
+import * as joiTypes from '../joi/types'
+import * as joiRules from '../joi/rules'
 
 const dateFormat = (type, value, options) => {
   return joiRules['dateFormat'](joiTypes[type], options).validate(value)
