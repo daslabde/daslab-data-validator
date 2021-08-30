@@ -9,8 +9,16 @@ const date = (value) => {
   return joiTypes['date']().validate(value)
 }
 
+const email = (value) => {
+  return joiTypes['email']().validate(value)
+}
+
 const number = (value) => {
   return joiTypes['number']().validate(value)
+}
+
+const phone = (value) => {
+  return joiTypes['phone']().validate(value)
 }
 
 const string = (value) => {
@@ -20,6 +28,8 @@ const string = (value) => {
 export {
   boolean,
   date,
+  email,
   number,
+  phone,
   string,
 }

@@ -67,4 +67,8 @@ const validate = (veeObject, dataObject) => {
   return joiSchema.validate(dataObject)
 }
 
-export default validate
+export {
+  validate,
+  TYPES_NAMES as types,
+  RULES_NAMES as rules,
+}
