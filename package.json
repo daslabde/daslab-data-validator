@@ -1,15 +1,23 @@
 {
   "name": "@daslabde/daslab-data-validator",
-  "version": "1.0.2",
-  "main": "src/index.js",
+  "version": "1.0.3",
+  "main": "dist/index.js",
   "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/@daslabde"
+    "registry": "https://npm.pkg.github.com/@daslabde"
   },
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "joi": "^17.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   }
 }

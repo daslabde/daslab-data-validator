@@ -5,7 +5,7 @@ import {
   date,
   number,
   string,
-} from './veeValidate/rules'
+} from './veeValidate/types'
 
 import {
   dateFormat,
