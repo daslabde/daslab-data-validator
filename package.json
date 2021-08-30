@@ -1,7 +1,7 @@
 {
   "name": "@daslabde/daslab-data-validator",
-  "version": "1.0.1",
-  "main": "index.js",
+  "version": "1.0.2",
+  "main": "src/index.js",
   "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
   "publishConfig": {
     "registry":"https://npm.pkg.github.com/@daslabde"
