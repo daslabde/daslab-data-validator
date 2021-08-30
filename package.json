@@ -1,6 +1,6 @@
 {
   "name": "@daslabde/daslab-data-validator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
   "publishConfig": {

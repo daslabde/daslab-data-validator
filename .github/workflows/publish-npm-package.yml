@@ -6,7 +6,22 @@ on:
       - master
 
 jobs:
-  publish-gpr:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build on Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --ignore-scripts
+      - run: npm run build --if-present
+
+  publish:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,8 +30,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@daslabde'
-      - run: npm install
-      - run: npm build                                                  
-      - run: npm publish
+      - name: Publish
+        run: npm publish
         env:                                                                                                                                                                                  
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
