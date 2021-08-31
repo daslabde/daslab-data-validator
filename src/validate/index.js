@@ -4,14 +4,14 @@ import * as rules from '../joi/rules'
 import * as typeCheckers from './typeCheckers'
 import * as ruleCheckers from './ruleCheckers'
 
-const TYPES_NAMES = Object.keys(types)
-const RULES_NAMES = Object.keys(rules)
+const SUPPORTED_TYPES = Object.keys(types)
+const SUPPORTED_RULES = Object.keys(rules)
 
 const _parseVeeString = (veeString) => {
   return veeString
     .split('|')
     .reduce((joiValue, rule) => {
-      TYPES_NAMES.forEach((name) => {
+      SUPPORTED_TYPES.forEach((name) => {
         if (typeCheckers?.[name](rule)) {
           joiValue = types?.[name]()
 
@@ -19,7 +19,7 @@ const _parseVeeString = (veeString) => {
         }
       })
 
-      RULES_NAMES.forEach((name) => {
+      SUPPORTED_RULES.forEach((name) => {
         if (ruleCheckers?.[name](rule)) {
           joiValue = rules?.[name](joiValue, rule.split(':')[1])
 
@@ -69,6 +69,6 @@ const validate = (veeObject, dataObject) => {
 
 export {
   validate,
-  TYPES_NAMES as types,
-  RULES_NAMES as rules,
+  SUPPORTED_TYPES,
+  SUPPORTED_RULES,
 }

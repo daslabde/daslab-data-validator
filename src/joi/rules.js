@@ -22,7 +22,7 @@ const oneOf = (Joi, options) => {
 }
 
 const required = (Joi) => {
-  return Joi.required()
+  return Joi.invalid(null, '').required()
 }
 
 export {

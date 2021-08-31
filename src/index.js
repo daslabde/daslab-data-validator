@@ -1,7 +1,7 @@
 import {
   validate,
-  types,
-  rules,
+  SUPPORTED_TYPES,
+  SUPPORTED_RULES,
 } from './validate/index'
 
 import {
@@ -26,8 +26,8 @@ import {
 
 export {
   validate,
-  types,
-  rules,
+  SUPPORTED_TYPES,
+  SUPPORTED_RULES,
 
   boolean,
   date,

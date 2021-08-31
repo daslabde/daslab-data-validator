@@ -1,13 +1,14 @@
 {
   "name": "@daslabde/daslab-data-validator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@daslabde"
   },
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack",
+    "build-prod": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

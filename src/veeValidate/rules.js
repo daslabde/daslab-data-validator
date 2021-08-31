@@ -1,38 +1,45 @@
+import * as types from '../joi/types'
+import * as rules from '../joi/rules'
 
-import * as joiTypes from '../joi/types'
-import * as joiRules from '../joi/rules'
-
-const dateFormat = (type, value, options) => {
-  return joiRules['dateFormat'](joiTypes[type](), options).validate(value)
+const dateFormat = (value, options) => {
+  return !rules.dateFormat(types.date(), options).validate(value).error
 }
 
-const length = (type, value, options) => {
-  return joiRules['length'](joiTypes[type](), options).validate(value)
+const length = (value, options) => {
+  return !rules.length(types.string(), options).validate(value).error
 }
 
-const max = (type, value, options) => {
-  return joiRules['max'](joiTypes[type](), options).validate(value)
+const max = (value, options) => {
+  return !rules.max(types.string(), options).validate(value).error
 }
 
-const min = (type, value, options) => {
-  return joiRules['min'](joiTypes[type](), options).validate(value)
+const maxValue = (value, options) => {
+  return !rules.max(types.number(), options).validate(value).error
 }
 
-const oneOf = (type, value, options) => {
-  return joiRules['oneOf'](joiTypes[type](), options).validate(value)
+const min = (value, options) => {
+  return !rules.min(types.string(), options).validate(value).error
 }
 
-const required = (type, value) => {
-  return joiRules['required'](joiTypes[type]()).validate(value)
+const minValue = (value, options) => {
+  return !rules.min(types.number(), options).validate(value).error
+}
+
+const oneOf = (value, options) => {
+  return !rules.oneOf(types.string(), options).validate(value).error
+}
+
+const required = (value) => {
+  return !rules.required(types.any()).validate(value).error
 }
 
 export {
   dateFormat,
   length,
   max,
-  max as maxValue,
+  maxValue,
   min,
-  min as minValue,
+  minValue,
   oneOf,
   required,
 }
