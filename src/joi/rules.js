@@ -1,3 +1,5 @@
+import Joi from 'joi'
+
 const MIN_LENGTH = 1;
 const MAX_LENGTH = 250;
 
@@ -21,8 +23,8 @@ const oneOf = (Joi, options) => {
   return Joi.valid(...options)
 }
 
-const required = (Joi) => {
-  return Joi.invalid(null, '').required()
+const required = () => {
+  return Joi.any().invalid(null, '', false).required()
 }
 
 export {

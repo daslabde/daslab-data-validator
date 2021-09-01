@@ -2,10 +2,6 @@ import Joi from 'joi'
 
 const PHONE_PATTERN = /^\+?[0-9]*$/
 
-const any = () => {
-  return Joi.any()
-}
-
 const boolean = () => {
   return Joi.boolean()
 }
@@ -31,7 +27,6 @@ const string = () => {
 }
 
 export {
-  any,
   boolean,
   date,
   email,

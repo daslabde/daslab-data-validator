@@ -29,8 +29,13 @@ const oneOf = (value, options) => {
   return !rules.oneOf(types.string(), options).validate(value).error
 }
 
-const required = (value) => {
-  return !rules.required(types.any()).validate(value).error
+const required = {
+  computesRequired: true,
+  params: [],
+  validate: (value, options) => ({
+    valid: !rules.required().validate(value).error,
+    required: true
+  })
 }
 
 export {
