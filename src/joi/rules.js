@@ -1,4 +1,4 @@
-import Joi from 'joi'
+import Joi from '../libs/joi'
 
 const MIN_LENGTH = 1;
 const MAX_LENGTH = 250;

@@ -1,6 +1,6 @@
 {
   "name": "@daslabde/daslab-data-validator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "author": "Dmytro Vasyliev <dvasyliev.dev@gmail.com>",
   "publishConfig": {
@@ -12,6 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "joi": "^17.4.2"
   },
   "devDependencies": {

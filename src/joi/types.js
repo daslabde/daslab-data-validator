@@ -1,6 +1,7 @@
-import Joi from 'joi'
+import Joi from '../libs/joi'
 
-const PHONE_PATTERN = /^\+?[0-9]*$/
+const PHONE_MIN = 5
+const PHONE_PATTERN = /^\+?\d*$/
 
 const boolean = () => {
   return Joi.boolean()
@@ -19,7 +20,7 @@ const number = () => {
 }
 
 const phone = () => {
-  return Joi.string().pattern(PHONE_PATTERN)
+  return Joi.string().min(PHONE_MIN).pattern(PHONE_PATTERN)
 }
 
 const string = () => {

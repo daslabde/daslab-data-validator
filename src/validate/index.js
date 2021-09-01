@@ -1,4 +1,4 @@
-import Joi from 'joi'
+import Joi from '../libs/joi'
 import * as types from '../joi/types'
 import * as rules from '../joi/rules'
 import * as typeCheckers from './typeCheckers'
