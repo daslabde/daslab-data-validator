@@ -14,39 +14,37 @@ const _parseVeeString = (veeString) => {
       SUPPORTED_TYPES.forEach((name) => {
         if (typeCheckers?.[name](rule)) {
           joiValue = types?.[name]()
-
-          return
         }
       })
 
       SUPPORTED_RULES.forEach((name) => {
         if (ruleCheckers?.[name](rule)) {
           joiValue = rules?.[name](joiValue, rule.split(':')[1])
-
-          return
         }
       })
-    }, null)
+
+      return joiValue
+    }, {})
 }
 
 const _parseVeeObject = (veeObject) => {
   return Object
     .entries(veeObject)
     .reduce((joiObject, [key, value]) => {
-      let joiValue
-
       switch(typeof value) {
         case 'string':
-          joiValue = _parseVeeString(value)
+          joiObject[key] = _parseVeeString(value)
+          break
 
         case 'object':
-          joiValue = _parseVeeObject(value)
+          joiObject[key] = _parseVeeObject(value)
+          break
+
+        default:
+          break
       }
 
-      return {
-        ...joiObject,
-        [key]: joiValue
-      }
+      return joiObject
     }, {})
 }
 

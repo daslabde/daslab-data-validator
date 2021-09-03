@@ -12,7 +12,9 @@ const date = () => {
 }
 
 const email = () => {
-  return Joi.string().email({ tlds: false })
+  return Joi.string()
+    .trim()
+    .email({ tlds: false })
 }
 
 const number = () => {
@@ -20,11 +22,15 @@ const number = () => {
 }
 
 const phone = () => {
-  return Joi.string().min(PHONE_MIN).pattern(PHONE_PATTERN)
+  return Joi.string()
+    .trim()
+    .min(PHONE_MIN)
+    .pattern(PHONE_PATTERN)
 }
 
 const string = () => {
   return Joi.string()
+    .trim()
 }
 
 export {
