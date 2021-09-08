@@ -12,14 +12,14 @@ const _parseVeeString = (veeString) => {
     .split('|')
     .reduce((joiValue, rule) => {
       SUPPORTED_TYPES.forEach((name) => {
-        if (typeCheckers?.[name](rule)) {
-          joiValue = types?.[name]()
+        if (typeCheckers && typeCheckers[name](rule)) {
+          if (types[name]) joiValue = types[name]()
         }
       })
 
       SUPPORTED_RULES.forEach((name) => {
-        if (ruleCheckers?.[name](rule)) {
-          joiValue = rules?.[name](joiValue, rule.split(':')[1])
+        if (ruleCheckers && ruleCheckers[name](rule)) {
+          if (rules[name]) joiValue = rules[name](joiValue, rule.split(':')[1])
         }
       })
 
