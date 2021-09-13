@@ -1,28 +1,31 @@
-const MIN_LENGTH = 1;
-const MAX_LENGTH = 250;
+const MIN_LENGTH = 1
+const MAX_LENGTH = 250
+const ONE_OF_SEPARATOR = ','
+const REQUIRED_INVALID = [null, '', false]
 
-const dateFormat = (Joi, options) => {
-  return Joi.format(options[0])
+const dateFormat = (Joi, option) => {
+  return Joi.format(option)
 }
 
-const length = (Joi, options) => {
-  return Joi.length(parseInt(options[0], 10))
+const length = (Joi, option) => {
+  return Joi.length(parseInt(option, 10))
 }
 
-const max = (Joi, options) => {
-  return Joi.max(parseInt(options[0], 10) || MAX_LENGTH)
+const max = (Joi, option) => {
+  return Joi.max(parseInt(option, 10) || MAX_LENGTH)
 }
 
-const min = (Joi, options) => {
-  return Joi.min(parseInt(options[0], 10) || MIN_LENGTH)
+const min = (Joi, option) => {
+  return Joi.min(parseInt(option, 10) || MIN_LENGTH)
 }
 
-const oneOf = (Joi, options) => {
-  return Joi.valid(...options)
+const oneOf = (Joi, option) => {
+  return Joi.valid(...option.split(ONE_OF_SEPARATOR))
 }
 
 const required = (Joi) => {
-  return Joi.invalid(null, '', false)
+  return Joi
+    .invalid(...REQUIRED_INVALID)
     .required()
 }
 
