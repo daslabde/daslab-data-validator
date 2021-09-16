@@ -1,5 +1,6 @@
 import Joi from '../libs/joi'
 
+const DATE_FORMAT = 'DD-MM-YYYY'
 const PHONE_MIN = 5
 const PHONE_PATTERN = /^\+?\d*$/
 
@@ -7,8 +8,9 @@ const boolean = () => {
   return Joi.boolean()
 }
 
-const date = () => {
+const date = (options) => {
   return Joi.date()
+    .format(options || DATE_FORMAT)
 }
 
 const email = () => {

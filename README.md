@@ -91,7 +91,6 @@ console.log(result)
 - number
 - phone
 - string
-- dateFormat
 - length
 - max
 - maxValue

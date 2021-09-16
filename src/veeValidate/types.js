@@ -8,8 +8,8 @@ const boolean = {
 }
 
 const date = {
-  validate: (value) => {
-    return !types.date()
+  validate: (value, options) => {
+    return !types.date(options)
       .validate(value).error
   }
 }

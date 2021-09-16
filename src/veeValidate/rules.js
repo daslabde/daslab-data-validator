@@ -2,13 +2,6 @@ import Joi from '../libs/joi'
 import * as types from '../joi/types'
 import * as rules from '../joi/rules'
 
-const dateFormat = {
-  validate: (value, options) => {
-    return !rules.dateFormat(types.date(), options[0])
-      .validate(value).error
-  }
-}
-
 const length = {
   validate: (value, options) => {
     return !rules.length(types.string(), options[0])
@@ -62,7 +55,6 @@ const required = {
 }
 
 export {
-  dateFormat,
   length,
   max,
   maxValue,

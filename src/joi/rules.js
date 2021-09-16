@@ -3,10 +3,6 @@ const MAX_LENGTH = 250
 const ONE_OF_SEPARATOR = ','
 const REQUIRED_INVALID = [null, '', false]
 
-const dateFormat = (Joi, option) => {
-  return Joi.format(option)
-}
-
 const length = (Joi, option) => {
   return Joi.length(parseInt(option, 10))
 }
@@ -30,7 +26,6 @@ const required = (Joi) => {
 }
 
 export {
-  dateFormat,
   length,
   max,
   min,
