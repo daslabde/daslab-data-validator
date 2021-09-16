@@ -14,7 +14,6 @@ import {
 } from './veeValidate/types'
 
 import {
-  dateFormat,
   length,
   max,
   maxValue,
@@ -36,7 +35,6 @@ export {
   phone,
   string,
 
-  dateFormat,
   length,
   max,
   maxValue,
