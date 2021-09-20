@@ -1,7 +1,0 @@
-# Dependency directories
-node_modules/
-
-# Production build
-!dist/client.js
-!dist/server.js
-!dist/index.js
