@@ -1,4 +1,5 @@
 const path = require("path")
+const config = require('./config')
 
 const serverConfig = {
   target: 'node',
@@ -6,12 +7,11 @@ const serverConfig = {
     lib: './src/index.js'
   },
   output: {
-    path: path.resolve(__dirname, "dist/server"),
-    filename: "index.js",
+    path: path.resolve(__dirname, `${config.build.server.dir}/`),
+    filename: `${config.build.server.file}`,
     libraryTarget: "commonjs",
     library: "validate",
     globalObject: "this",
-    clean: true,
   },
   externals: [ /^(?!\.|\/).+/i, ],
   module: {
@@ -29,10 +29,9 @@ const serverConfig = {
 const clientConfig = {
   target: 'web',
   output: {
-    path: path.resolve(__dirname, "dist/client"),
-    filename: "index.js",
+    path: path.resolve(__dirname, `${config.build.client.dir}/`),
+    filename: `${config.build.client.file}`,
     libraryTarget: 'commonjs2',
-    clean: true,
   },
   module: {
     rules: [
