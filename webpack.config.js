@@ -1,5 +1,5 @@
-const path = require("path")
-const config = require('./config')
+const { dirname } = require('path')
+const path = require('path')
 
 const serverConfig = {
   target: 'node',
@@ -7,11 +7,11 @@ const serverConfig = {
     lib: './src/index.js'
   },
   output: {
-    path: path.resolve(__dirname, `${config.build.server.dir}/`),
-    filename: `${config.build.server.file}`,
-    libraryTarget: "commonjs",
-    library: "validate",
-    globalObject: "this",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.js',
+    libraryTarget: 'commonjs',
+    library: 'validate',
+    globalObject: 'this',
   },
   externals: [ /^(?!\.|\/).+/i, ],
   module: {
@@ -19,18 +19,18 @@ const serverConfig = {
       {
         test: /\.node$/,
         exclude: /node_modules/,
-        use: "node-loader",
+        use: 'node-loader',
       },
     ],
   },
-  mode: "development",
+  mode: 'development',
 }
 
 const clientConfig = {
   target: 'web',
   output: {
-    path: path.resolve(__dirname, `${config.build.client.dir}/`),
-    filename: `${config.build.client.file}`,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'client.js',
     libraryTarget: 'commonjs2',
   },
   module: {
@@ -38,11 +38,14 @@ const clientConfig = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: 'babel-loader',
       },
     ],
   },
-  mode: "development",
+  mode: 'development',
 }
 
-module.exports = [serverConfig, clientConfig]
+module.exports = [
+  serverConfig, 
+  clientConfig
+]
