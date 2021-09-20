@@ -16,9 +16,10 @@ const _parseVeeString = (veeString) => {
           if (types[name]) {
             let typeOptions
             try {
-               typeOptions = rule.split(':')[1]
+              const typeSplit = rule.split(':')
+               typeOptions = ruleSplit.length > 0 ? typeSplit[1] : null
+               joiValue = types[name](typeOptions)
             } catch (error) {}
-            joiValue = types[name](typeOptions)
           }
         }
       })
@@ -28,9 +29,10 @@ const _parseVeeString = (veeString) => {
           let ruleOptions
           if (rules[name]) {
             try {
-              ruleOptions = rule.split(':')[1]
+              const ruleSplit = rule.split(':')
+              ruleOptions = ruleSplit.length > 0 ? ruleSplit[1] : null
+              joiValue = rules[name](joiValue, ruleOptions)
             } catch (error) {}
-            joiValue = rules[name](joiValue, ruleOptions)
           }
         }
       })
