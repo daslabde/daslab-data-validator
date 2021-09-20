@@ -2,5 +2,3 @@
 node_modules/
 
 # Production build
-# dist/*
-# !dist/index.js

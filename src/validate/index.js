@@ -17,7 +17,7 @@ const _parseVeeString = (veeString) => {
             let typeOptions
             try {
               const typeSplit = rule.split(':')
-               typeOptions = ruleSplit.length > 0 ? typeSplit[1] : null
+               typeOptions = typeSplit.length > 0 ? typeSplit[1] : null
                joiValue = types[name](typeOptions)
             } catch (error) {}
           }
