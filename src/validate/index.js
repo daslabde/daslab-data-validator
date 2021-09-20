@@ -13,13 +13,27 @@ const _parseVeeString = (veeString) => {
     .reduce((joiValue, rule) => {
       SUPPORTED_TYPES.forEach((name) => {
         if (typeCheckers && typeCheckers[name](rule)) {
-          if (types[name]) joiValue = types[name](rule?.split(':')?.[1])
+          if (types[name]) {
+            let typeOptions
+            try {
+              const typeSplit = rule.split(':')
+               typeOptions = ruleSplit.length > 0 ? typeSplit[1] : null
+               joiValue = types[name](typeOptions)
+            } catch (error) {}
+          }
         }
       })
 
       SUPPORTED_RULES.forEach((name) => {
         if (ruleCheckers && ruleCheckers[name](rule)) {
-          if (rules[name]) joiValue = rules[name](joiValue, rule?.split(':')?.[1])
+          let ruleOptions
+          if (rules[name]) {
+            try {
+              const ruleSplit = rule.split(':')
+              ruleOptions = ruleSplit.length > 0 ? ruleSplit[1] : null
+              joiValue = rules[name](joiValue, ruleOptions)
+            } catch (error) {}
+          }
         }
       })
 
