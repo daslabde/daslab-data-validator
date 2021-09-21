@@ -15,20 +15,8 @@ const _parseVeeString = (veeString) => {
       const ruleOptions = ruleFragments.length > 1 ? ruleFragments[1] : null
 
       SUPPORTED_TYPES.forEach((name) => {
-<<<<<<< Updated upstream
-        if (typeCheckers && typeCheckers[name](rule)) {
-          if (types[name]) {
-            let typeOptions
-            try {
-              const typeSplit = rule.split(':')
-               typeOptions = typeSplit.length > 0 ? typeSplit[1] : null
-               joiValue = types[name](typeOptions)
-            } catch (error) {}
-          }
-=======
         if (typeCheckers && typeCheckers[name](rule) && types[name]) {
           joiValue = types[name](ruleOptions)
->>>>>>> Stashed changes
         }
       })
 
