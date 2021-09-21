@@ -7,7 +7,7 @@ const email = (rule) => {
 }
 
 const date = (rule) => {
-  return rule === 'date'
+  return rule === 'date' || /^date:/.test(rule)
 }
 
 const number = (rule) => {
