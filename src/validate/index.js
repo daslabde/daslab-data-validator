@@ -11,7 +11,11 @@ const _parseVeeString = (veeString) => {
   return veeString
     .split('|')
     .reduce((joiValue, rule) => {
+      const ruleFragments = rule ? rule.split(':') : []
+      const ruleOptions = ruleFragments.length > 1 ? ruleFragments[1] : null
+
       SUPPORTED_TYPES.forEach((name) => {
+<<<<<<< Updated upstream
         if (typeCheckers && typeCheckers[name](rule)) {
           if (types[name]) {
             let typeOptions
@@ -21,19 +25,16 @@ const _parseVeeString = (veeString) => {
                joiValue = types[name](typeOptions)
             } catch (error) {}
           }
+=======
+        if (typeCheckers && typeCheckers[name](rule) && types[name]) {
+          joiValue = types[name](ruleOptions)
+>>>>>>> Stashed changes
         }
       })
 
       SUPPORTED_RULES.forEach((name) => {
-        if (ruleCheckers && ruleCheckers[name](rule)) {
-          let ruleOptions
-          if (rules[name]) {
-            try {
-              const ruleSplit = rule.split(':')
-              ruleOptions = ruleSplit.length > 0 ? ruleSplit[1] : null
-              joiValue = rules[name](joiValue, ruleOptions)
-            } catch (error) {}
-          }
+        if (ruleCheckers && ruleCheckers[name](rule) && rules[name]) {
+          joiValue = rules[name](joiValue, ruleOptions)
         }
       })
 

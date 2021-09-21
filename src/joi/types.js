@@ -10,7 +10,7 @@ const boolean = () => {
 
 const date = (options) => {
   return Joi.date()
-    .format(options || DATE_FORMAT)
+    .format(options || [DATE_FORMAT])
 }
 
 const email = () => {
