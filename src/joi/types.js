@@ -33,6 +33,7 @@ const phone = () => {
 const string = () => {
   return Joi.string()
     .trim()
+    .empty('')
 }
 
 export {
