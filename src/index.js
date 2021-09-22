@@ -1,5 +1,6 @@
 import {
   validate,
+  isValid,
   SUPPORTED_TYPES,
   SUPPORTED_RULES,
 } from './validate/index'
@@ -25,6 +26,7 @@ import {
 
 export {
   validate,
+  isValid,
   SUPPORTED_TYPES,
   SUPPORTED_RULES,
 

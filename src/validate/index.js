@@ -68,8 +68,15 @@ const validate = (veeObject, dataObject) => {
   return joiSchema.validate(dataObject)
 }
 
+const isValid = (veeObject, dataObject) => {
+  const { error } = validate(veeObject, dataObject)
+
+  return !error
+}
+
 export {
   validate,
+  isValid,
   SUPPORTED_TYPES,
   SUPPORTED_RULES,
 }
